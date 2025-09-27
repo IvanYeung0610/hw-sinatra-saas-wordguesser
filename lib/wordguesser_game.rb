@@ -40,7 +40,6 @@ class WordGuesserGame
 
   def check_win_or_lose
     state = :win
-
     self.word.each_char do |char|
       if not self.guesses.include?(char)
         state = :play
@@ -50,7 +49,6 @@ class WordGuesserGame
     if self.wrong_guesses.length >= 7
       state = :lose
     end
-
     state
   end
 
