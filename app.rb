@@ -41,7 +41,9 @@ class WordGuesserApp < Sinatra::Base
   post '/guess' do
     params[:guess].to_s[0]
     ### YOUR CODE HERE ###
-    @game.guess(params[:guess].to_s[0])
+    if not @game.guess(params[:guess].to_s[0])
+      flash[:message] = "You have already used that letter"
+    end
     redirect '/show'
   end
 
